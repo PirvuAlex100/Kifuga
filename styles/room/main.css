@@ -1,0 +1,96 @@
+    html { scroll-behavior: smooth; }
+    ::selection { background-color: #FF6B5E; color: #FFF8F0; }
+    .logo-letter { display: inline-block; font-family: 'Fredoka One', cursive; font-weight: 400; }
+    .logo-k { color: #E53935; } .logo-i { color: #FDD835; } .logo-f { color: #1E88E5; }
+    .logo-u { color: #26A69A; } .logo-g { color: #F48FB1; } .logo-a { color: #FB8C00; }
+    .mode-card {
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .mode-card:hover:not(.locked) {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px -10px rgba(0,0,0,0.15);
+    }
+    .mode-card.locked {
+      opacity: 0.6;
+      cursor: not-allowed;
+      filter: grayscale(30%);
+    }
+    .btn-primary {
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 14px -4px rgba(255, 107, 94, 0.35);
+    }
+    .btn-primary:hover { transform: scale(1.03); }
+    .btn-primary:active { transform: scale(0.97); }
+    .player-badge {
+      transition: background 0.2s;
+    }
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+.firefly {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #f9e076;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 4px #f9e07688;
+  animation: floatFirefly var(--fly-duration) ease-in-out infinite;
+  animation-delay: var(--fly-delay);
+}
+    .chat-area::-webkit-scrollbar { width: 6px; }
+    .chat-area::-webkit-scrollbar-track { background: transparent; }
+    .chat-area::-webkit-scrollbar-thumb { background: #CBD5E0; border-radius: 3px; }
+    @keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 0.5s ease-out forwards;
+}
+.animate-pop {
+  animation: pop 0.3s ease-out;
+}
+.animate-flickerGlow {
+  animation: flickerGlow 3s ease-in-out infinite;
+}
+.filter-pill {
+  border-color: #d1d5db;
+  color: #6b7280;
+  background: #fff;
+}
+.filter-pill.active {
+  border-color: #FF6B5E;
+  color: #fff;
+  background: #FF6B5E;
+  box-shadow: 0 0 0 1px #FF6B5E;
+}
+.logo-bounce {
+  animation: logoBounce 0.4s ease;
+}
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+@keyframes pop {
+  0% { transform: scale(0.95); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+@keyframes floatFirefly {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(15px, -25px); }
+  50% { transform: translate(-10px, -50px); }
+  75% { transform: translate(-20px, -20px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes logoBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
