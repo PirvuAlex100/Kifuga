@@ -1028,7 +1028,8 @@ function endBuzzWindow(code, room) {
   game.buzzWindowActive = false;
   clearTimeout(game.questionTimeout);
   if (game.buzzOrder.length === 0) {
-    io.to(code).emit('buzzTimeout', {});
+    const question = game.questions[game.currentQuestionIndex];
+    io.to(code).emit('buzzTimeout', { answer: question.answer });
     setTimeout(() => {
       game.currentQuestionIndex++;
       startBuzzQuestion(code, room);
