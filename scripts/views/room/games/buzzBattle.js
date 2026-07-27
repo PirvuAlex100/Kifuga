@@ -100,15 +100,17 @@ function renderBuzzBattleUI(socket, gameState, isHost, currentPlayers) {
     document.getElementById('buzzOrderList').classList.remove('hidden');
     document.getElementById('buzzOrderText').textContent = buzzOrder.length + ' buzzed';
   });
-  socket.on('buzzTimeout', () => {
+  socket.on('buzzTimeout', ({ answer }) => {
     clearInterval(buzzTimerInterval);
     suspenseSound.pause();
     if (window.bgMusic && window.bgMusic.paused) {
-  window.bgMusic.play().catch(() => {});
-}
+      window.bgMusic.play().catch(() => {});
+    }
     document.getElementById('buzzBtn').classList.add('hidden');
     document.getElementById('buzzTimer').classList.add('hidden');
-    document.getElementById('buzzStatus').textContent = 'No one buzzed. Next question...';
+    document.getElementById('buzzStatus').textContent = answer 
+      ? `No one buzzed. Answer: ${answer}` 
+      : 'No one buzzed. Next question...';
   });
   socket.on('buzzTurn', ({ playerId }) => {
     clearInterval(buzzTimerInterval);
